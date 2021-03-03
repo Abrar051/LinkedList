@@ -250,7 +250,7 @@ public class SingleLinkedList {
 
     public void remove (int data)
     {
-        Node pointer = new Node(data);
+        //Node pointer = new Node(data);
         Node current=head;
         Node temp;
         if (head==null)
