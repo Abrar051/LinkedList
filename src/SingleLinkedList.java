@@ -176,6 +176,19 @@ public class SingleLinkedList {
         }
         return pointer;
     }
+    public Node findPrevious (int val)
+    {
+        Node pointer = head;
+        while (true)
+        {
+            if (pointer.next==null)
+                break;
+            if (pointer.next.data == val)
+                return pointer;
+            pointer=pointer.next;
+        }
+        return pointer;
+    }
 
     public int searchNode(int data) {
         Node current = head;
@@ -197,6 +210,18 @@ public class SingleLinkedList {
         return i;
     }
 
+    public void remove (int data)
+    {
+        Node n = findPrevious(data);
+        if (n==null)
+        {
+            head=head.next;
+        }
+        else
+        {
+            n.next=n.next.next;
+        }
+    }
 
     /*public void remove (int data)
     {
@@ -245,10 +270,7 @@ public class SingleLinkedList {
 
         System.out.println(pointer);
     }*/
-
-
-
-    public void remove (int data)
+    /*public void remove (int data)
     {
         //Node pointer = new Node(data);
         Node current=head;
@@ -289,5 +311,5 @@ public class SingleLinkedList {
                 tail=null;
             }
         }
-    }
+    }*/
 }
