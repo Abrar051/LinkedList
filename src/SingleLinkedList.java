@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -63,7 +61,8 @@ public class SingleLinkedList {
 
     }
 
-    public void backDisplay() {this.position--;
+    public void backDisplay() {
+        this.position--;
         Node current = head;
         if (head == null) {
             System.out.println("List is empty");
@@ -171,15 +170,11 @@ public class SingleLinkedList {
         while (true) {
             if(pointer.next ==null)
                 break;
-
             if(pointer.data == val)
                 return pointer;
-
             pointer = pointer.next;
-
         }
         return pointer;
-
     }
 
     public int searchNode(int data) {
@@ -201,6 +196,7 @@ public class SingleLinkedList {
         }
         return i;
     }
+
 
     /*public void remove (int data)
     {
@@ -241,11 +237,57 @@ public class SingleLinkedList {
         }
         size--;
     }*/
-    public void remove (int data) {
+   /* public void remove (int data) {
         Node temp;
         Node current=head;
         boolean flag = false;
         Node pointer = findNode(data);
 
         System.out.println(pointer);
-    }}
+    }*/
+
+
+
+    public void remove (int data)
+    {
+        Node pointer = new Node(data);
+        Node current=head;
+        Node temp;
+        if (head==null)
+        {
+            return;
+        }
+        else
+        {
+            if (head!=tail)
+            {
+                temp=head;
+                current=null;
+                while (true)   //newly added logic
+                {
+                    current=temp;
+                    temp=temp.next;
+                    if (current.next.data==data)
+                    {
+                        break;
+                    }
+                }
+                if (current!=null)
+                {
+                    current.next=temp.next;
+                }
+                else
+                {
+                    head=tail;
+                    tail=temp.next;
+                    tail.next=head;
+                }
+            }
+            else
+            {
+                head=tail;
+                tail=null;
+            }
+        }
+    }
+}
