@@ -19,6 +19,7 @@ public class Main {
         obj.addInMid(12,10);
         obj.addFirst(27);
         obj.addLast(26);
+
         obj.display();
         obj.removeFirst();
         obj.removeLast();

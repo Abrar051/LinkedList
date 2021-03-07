@@ -71,22 +71,21 @@ public class LinkedListFunc {
     }
     public void removeLast ()
     {
-        Node temp;
         Node pointer=head;
-        if (tail==null)
+        if (tail==head )
             System.out.println("Empty list");
         else
         {
             while(pointer!=null)
             {
-                temp=pointer.next;
-                pointer=pointer.next;
-                if (temp.next==tail)
+                if (pointer.next==tail)
                 {
-                    temp=tail;
-                    temp.next=null;
+                    System.out.println(pointer.data+" ");
+                    tail=pointer;
+                    tail.next=null;
                     break;
                 }
+                pointer=pointer.next;
             }
         }
     }
@@ -188,7 +187,7 @@ public class LinkedListFunc {
         else
         {
             tail.next=newNode;
-            newNode=tail;
+            tail=newNode;
         }
     }
 
