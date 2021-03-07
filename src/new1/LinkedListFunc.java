@@ -57,10 +57,38 @@ public class LinkedListFunc {
         }
         tail = newNode;
     }
-    public void forwardDisplay (int val)
+
+    public void removeFirst ()
     {
-        Node pointer = findNode(val).next;
-        System.out.println(pointer.data);
+        Node temp;
+        if (head==null)
+            System.out.println("List is empty");
+        else
+        {
+            temp=head.next;
+            head=temp;
+        }
+    }
+    public void removeLast ()
+    {
+        Node temp;
+        Node pointer=head;
+        if (tail==null)
+            System.out.println("Empty list");
+        else
+        {
+            while(pointer!=null)
+            {
+                temp=pointer.next;
+                pointer=pointer.next;
+                if (temp.next==tail)
+                {
+                    temp=tail;
+                    temp.next=null;
+                    break;
+                }
+            }
+        }
     }
     public void backwardDisplay (int val)
     {
@@ -105,31 +133,7 @@ public class LinkedListFunc {
         System.out.println();
     }
 
-    /*public Node reverse(Node node) {
-        Node prev = null;
-        Node current = node;
-        Node next = null;
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
-        node = prev;
-        return node;
-    }
-    public void reverseDisplay(Node node) {
-        reverse(head);
-        while (node != null) {
-            System.out.print(node.data + " ");
-            node = node.next;
-        }
-    }*/
 
-    public void reverseDisplay ()
-    {
-
-    }
     public void swap (Node a , Node b)
     {
         int temp;
