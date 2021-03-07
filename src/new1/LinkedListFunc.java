@@ -1,10 +1,9 @@
 package new1;
-
+import java.util.*;
 public class LinkedListFunc {
     public Node head = null;
     public Node tail = null;
-
-
+    Scanner input = new Scanner(System.in);
     public Node findNode(int val) {
         Node pointer =head;
         while (true)
@@ -104,6 +103,113 @@ public class LinkedListFunc {
             current=current.next;
         }
         System.out.println();
+    }
+
+    /*public Node reverse(Node node) {
+        Node prev = null;
+        Node current = node;
+        Node next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        return node;
+    }
+    public void reverseDisplay(Node node) {
+        reverse(head);
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next;
+        }
+    }*/
+
+    public void reverseDisplay ()
+    {
+
+    }
+    public void swap (Node a , Node b)
+    {
+        int temp;
+        if (a.data>b.data)
+        {
+            temp=a.data;
+            a.data= b.data;
+            b.data=temp;
+        }
+    }
+    public void nodeSwap (Node a , Node b)
+    {
+        Node temp;
+        temp = a;
+        a=b;
+        b=temp;
+    }
+    public void addInMid (int val1 , int val2)
+    {
+        System.out.print("Enter data to enter between "+val1+" and "+val2+" : ");
+        int data = input.nextInt();
+        Node midNode = new Node(data);
+        Node pointer = head;
+        Node temp=midNode;
+        Node n1 = findNode(val1);
+        Node n2 = findNode(val2);
+        n1.next=temp;
+        temp.next=n2;
+    }
+
+    public void addFirst (int data)
+    {
+        Node n1=head;
+        Node temp;
+        Node newNode = new Node(data);
+        if (head==null)
+            System.out.println("No item in list");
+        else
+        {
+            temp=head;
+            head=newNode;
+            newNode.next=temp;
+        }
+    }
+
+    public void addLast (int data)
+    {
+        Node n1=tail;
+        Node newNode = new Node(data);
+        if (tail==null)
+            System.out.println("No item in the list");
+        else
+        {
+            tail.next=newNode;
+            newNode=tail;
+        }
+    }
+
+    public void sortAscendingDisplay ()
+    {
+        Node current=head,pointer=null;
+        boolean swap=false;
+        if (current==null)
+        {
+            System.out.println("Index is empty");
+            return;
+        }
+        else
+        {
+            while(current != null) {
+                pointer = current.next;
+                while(pointer != null) {
+                    if(current.data > pointer.data) {
+                        swap (current,pointer);
+                    }
+                    pointer = pointer.next;
+                }
+                current=current.next;
+            }
+        }
     }
 
 }
