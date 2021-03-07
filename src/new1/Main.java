@@ -10,6 +10,7 @@ public class Main {
         obj.addNode(4);
         obj.addNode(6);
         obj.addNode(5);
+        obj.forwardDisplay(6);
         obj.addNode(9);
         obj.display();
         System.out.println(obj.findNode(100));

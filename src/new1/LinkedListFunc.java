@@ -57,12 +57,23 @@ public class LinkedListFunc {
             tail.next = newNode;
         }
         tail = newNode;
-
     }
     public void forwardDisplay (int val)
     {
-        Node pointer = findNode(val);
-        System.out.println(pointer.next.data);
+        Node pointer = findNode(val).next;
+        System.out.println(pointer.data);
+    }
+    public void backwardDisplay (int val)
+    {
+        Node pointer = head;
+        while (true)
+        {
+            if (pointer.data==val)
+                System.out.println("null");
+            else if (pointer.next.data==val)
+                System.out.println(pointer.next.data);;
+            pointer=pointer.next;
+        }
     }
     public void backWardDisplay (int val)
     {
