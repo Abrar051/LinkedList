@@ -14,22 +14,27 @@ public class Main {
         obj.addNode(12);
         obj.addNode(10);
         obj.addNode(7);
-        obj.addNode(11);
         obj.addInMid(6,5);
         obj.addInMid(12,10);
+        obj.display();
+//        obj.addInMid(12,10);
         obj.addFirst(27);
+        obj.display();
         obj.addLast(26);
 
         obj.display();
         obj.removeFirst();
         obj.removeLast();
-        //obj.sortAscendingDisplay();
-        obj.display();
+//        //obj.sortAscendingDisplay();
+//        obj.display();
         //obj.display();
-        //obj.remove(6);
+        obj.remove(6);
+        obj.remove(7);
         //obj.remove(2);
         //obj.remove(9);
         //obj.remove(4);
-        //obj.display();
+        obj.display();
+        obj.sortAscendingDisplay();
+        obj.display();
     }
 }

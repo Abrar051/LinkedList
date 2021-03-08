@@ -49,13 +49,18 @@ public class LinkedListFunc {
     }
 
     public void addNode(int data) {
-        Node newNode = new Node(data);
+        Node newNode = createNode(data);
         if (head == null) {
             head = newNode;
         } else {
             tail.next = newNode;
         }
         tail = newNode;
+    }
+    public Node createNode (int data)
+    {
+        Node newNode = new Node(data);
+        return newNode;
     }
 
     public void removeFirst ()
@@ -154,13 +159,13 @@ public class LinkedListFunc {
     {
         System.out.print("Enter data to enter between "+val1+" and "+val2+" : ");
         int data = input.nextInt();
-        Node midNode = new Node(data);
-        Node pointer = head;
-        Node temp=midNode;
+        Node n = new Node(data);
         Node n1 = findNode(val1);
+        System.out.println(n1.data);
         Node n2 = findNode(val2);
-        n1.next=temp;
-        temp.next=n2;
+        System.out.println(n2.data);
+        n1.next=n;
+        n.next=n2;
     }
 
     public void addFirst (int data)
@@ -193,24 +198,24 @@ public class LinkedListFunc {
 
     public void sortAscendingDisplay ()
     {
-        Node current=head,pointer=null;
-        boolean swap=false;
-        if (current==null)
-        {
-            System.out.println("Index is empty");
+        Node current = head, index = null;
+        int temp;
+
+        if(head == null) {
             return;
         }
-        else
-        {
+        else {
             while(current != null) {
-                pointer = current.next;
-                while(pointer != null) {
-                    if(current.data > pointer.data) {
-                        swap (current,pointer);
+                index = current.next;
+                while(index != null) {
+                    if(current.data > index.data) {
+                        temp = current.data;
+                        current.data = index.data;
+                        index.data = temp;
                     }
-                    pointer = pointer.next;
+                    index = index.next;
                 }
-                current=current.next;
+                current = current.next;
             }
         }
     }
