@@ -1,8 +1,9 @@
 package LinkedListPracticeDay2;
-
+import java.util.*;
 public class DoubleLinkedList {
     public Node head = null;
     public Node tail = null;
+    Scanner input = new Scanner(System.in);
     public void addNode (int data)
     {
         Node newNode = new Node(data);
@@ -35,7 +36,25 @@ public class DoubleLinkedList {
             }
         }
     }
-    public void reverseDisplay ()//display data in reverse order
+    public Node searchNode (int val)
+    {
+        Node pointer=head;
+        while (true)
+        {
+            if (pointer.data==val)
+            {
+                return pointer;
+            }
+            else if (pointer.next==null)
+            {
+                System.out.println("No match found");
+                break;
+            }
+            pointer=pointer.next;
+        }
+        return pointer;
+    }
+    public void reverseDisplay ()
     {
         Node pointer = tail;
         if (head==null)
@@ -44,6 +63,7 @@ public class DoubleLinkedList {
         }
         else
         {
+            System.out.println("\nLinked list in reverse position is : ");
             while (pointer!=head.previous)
             {
                 System.out.print(pointer.data+" ");
@@ -54,7 +74,6 @@ public class DoubleLinkedList {
     public void addAtFirst (int data)
     {
         Node newNode = new Node(data);
-        Node temp=head;
         if (head==null)
         {
             System.out.println("List is empty");
@@ -68,5 +87,42 @@ public class DoubleLinkedList {
             head=newNode;
             newNode.previous=null;
         }
+    }
+    public void addAtLast (int data)
+    {
+        Node newNode = new Node (data);
+        if (head==tail)
+        {
+            System.out.println("Linked list is empty");
+            head=tail=newNode;
+            head.previous=null;
+        }
+        else {
+            tail.next=newNode;
+            newNode.previous=tail;
+            tail=newNode;
+        }
+    }
+    public void addInMid (int val , int val1)
+    {
+        Node n1 = searchNode(val);
+        Node n2 = searchNode(val1);
+        System.out.println("\nEnter data to enter between "+val+" and "+val1+" :");
+        int data = input.nextInt();
+        Node nodeMid = new Node(data);
+        n1.next=nodeMid;
+        nodeMid.previous=n1;
+        nodeMid.next=n2;
+        n2.previous=nodeMid;
+        System.out.println();
+    }
+    public void remove (int data)
+    {
+        Node n2 =searchNode(data);
+        Node n1=n2.previous;
+        Node n3= n2.next;
+        n1.next=n3;
+        n3.previous=n1;
+        System.out.println();
     }
 }

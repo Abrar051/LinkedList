@@ -12,9 +12,12 @@ public class Main {
         obj.addNode(10);
         obj.display();
         obj.addAtFirst(50);
-        System.out.println();
+        obj.addAtLast(100);
+        obj.addInMid(2,3);
+        obj.addInMid(9,10);
         obj.display();
-        System.out.println();
+        obj.remove(8);
+        obj.display();
         obj.reverseDisplay();
     }
 }
