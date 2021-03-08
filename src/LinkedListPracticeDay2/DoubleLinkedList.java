@@ -10,7 +10,6 @@ public class DoubleLinkedList {
         if (head==null)
         {
             head=tail=newNode;
-            head.back=null;
         }
         else
         {
@@ -18,7 +17,6 @@ public class DoubleLinkedList {
             newNode.back=tail;
             tail=newNode;
         }
-        tail.next=null;
     }
     public void display ()//display data in input order
     {
@@ -135,6 +133,36 @@ public class DoubleLinkedList {
     {
         tail.back.next=null;
         tail=tail.back;
+        System.out.println();
+    }
+    public void sortDescending ()
+    {
+        Node current=head;
+        Node index;
+        int temp;
+        if (head==null)
+        {
+            System.out.println("Linked list empty");
+            return;
+        }
+        else
+        {
+            while (current!=null)
+            {
+                index=current.next;
+                while (index!=null)
+                {
+                    if (current.data>index.data)
+                    {
+                        temp=current.data;
+                        current.data=index.data;
+                        index.data=temp;
+                    }
+                    index=index.next;
+                }
+                current=current.next;
+            }
+        }
         System.out.println();
     }
 }

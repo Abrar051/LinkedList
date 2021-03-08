@@ -1,3 +1,23 @@
 problem from 4.8-4.12
 Unlike single linked list double linked list is formed with 2 items
 1 is previous and another is next
+descending sort
+algorithm
+2 loop will run
+1st loop runs current
+2nd loop runs index
+current will start from head
+Node current=head;
+while (current!=null)
+{
+ index=current.next
+ while (index!=null)
+ {
+  if (current.next<index.next)
+    {
+    swap
+    }
+   index=index.next;
+  }
+  current=current.next;
+}

@@ -16,13 +16,17 @@ public class Main {
         obj.addAtFirst(50);
         obj.addAtLast(100);
         obj.addInMid(2,3);
-        obj.addInMid(9,10);
+        obj.addInMid(17,100);
         obj.display();
         obj.remove(8);
+        obj.remove(9);
+        obj.addAtLast(200);
         obj.display();
         obj.removeFirst();
         obj.removeLast();
         obj.display();
         obj.reverseDisplay();
+        obj.sortDescending();
+        obj.display();
     }
 }
