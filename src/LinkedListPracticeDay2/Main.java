@@ -17,6 +17,7 @@ public class Main {
         obj.addAtLast(100);
         obj.addInMid(2,3);
         obj.addInMid(17,100);
+        obj.traverse();
         obj.display();
         obj.remove(8);
         obj.remove(9);

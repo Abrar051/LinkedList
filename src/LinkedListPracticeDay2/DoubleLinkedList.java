@@ -3,6 +3,7 @@ import java.util.*;
 public class DoubleLinkedList {
     public Node head = null;
     public Node tail = null;
+
     Scanner input = new Scanner(System.in);
     public void addNode (int data)
     {
@@ -164,5 +165,50 @@ public class DoubleLinkedList {
             }
         }
         System.out.println();
+    }
+    public void traverse ()
+    {
+        System.out.println("Enter initial data to start traverse : ");
+        int val = input.nextInt();
+        Node n = searchNode(val);
+        while (true)
+        {
+            System.out.println("Enter string f to move forward , b backward and break to break :");
+            String identifier = input.next();
+            if (identifier.equals("f"))
+            {
+                if (n==tail)
+                {
+                    System.out.println("List reached in the tail");
+                    break;
+                }
+                else
+                {
+                    System.out.println(n.next.data);
+                    n=n.next;
+                }
+            }
+            else if (identifier.equals("b"))
+            {
+                if (n==head)
+                {
+                    System.out.println("List reached in the head");
+                    break;
+                }
+                else
+                {
+                    System.out.println(n.back.data);
+                    n=n.back;
+                }
+            }
+            else if (identifier.equals("break"))
+            {
+                break;
+            }
+            else
+            {
+                System.out.println("Input doesn't match , enter again . ");
+            }
+        }
     }
 }
