@@ -9,11 +9,4 @@ class Node {
         this.next = null;
     }
 
-    @Override
-    public String toString() {
-        return "Last Node{" +
-                "data=" + data +
-                ", next=" + next +
-                '}';
-    }
 }
