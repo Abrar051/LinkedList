@@ -10,6 +10,8 @@ public class Main {
         obj.addNode(8);
         obj.addNode(9);
         obj.addNode(10);
+        obj.addNode(22);
+        obj.addNode(17);
         obj.display();
         obj.addAtFirst(50);
         obj.addAtLast(100);
@@ -17,7 +19,9 @@ public class Main {
         obj.addInMid(9,10);
         obj.display();
         obj.remove(8);
+        obj.display();
         obj.removeFirst();
+        obj.removeLast();
         obj.display();
         obj.reverseDisplay();
     }

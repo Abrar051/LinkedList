@@ -2,7 +2,7 @@ package LinkedListPracticeDay2;
 
 public class Node {
     int data;
-    Node previous;
+    Node back;
     Node next;
     Node (int data)
     {

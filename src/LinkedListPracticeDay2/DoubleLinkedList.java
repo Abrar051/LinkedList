@@ -10,12 +10,12 @@ public class DoubleLinkedList {
         if (head==null)
         {
             head=tail=newNode;
-            head.previous=null;
+            head.back=null;
         }
         else
         {
             tail.next=newNode;
-            newNode.previous=tail;
+            newNode.back=tail;
             tail=newNode;
         }
         tail.next=null;
@@ -64,10 +64,10 @@ public class DoubleLinkedList {
         else
         {
             System.out.println("\nLinked list in reverse position is : ");
-            while (pointer!=head.previous)
+            while (pointer!=head.back)
             {
                 System.out.print(pointer.data+" ");
-                pointer=pointer.previous;
+                pointer=pointer.back;
             }
         }
     }
@@ -78,14 +78,14 @@ public class DoubleLinkedList {
         {
             System.out.println("List is empty");
             head=tail=newNode;
-            head.previous=null;
+            head.back=null;
         }
         else
         {
             newNode.next=head;
-            head.previous=newNode;
+            head.back=newNode;
             head=newNode;
-            newNode.previous=null;
+            newNode.back=null;
         }
     }
     public void addAtLast (int data)
@@ -95,11 +95,11 @@ public class DoubleLinkedList {
         {
             System.out.println("Linked list is empty");
             head=tail=newNode;
-            head.previous=null;
+            head.back=null;
         }
         else {
             tail.next=newNode;
-            newNode.previous=tail;
+            newNode.back=tail;
             tail=newNode;
         }
     }
@@ -111,28 +111,30 @@ public class DoubleLinkedList {
         int data = input.nextInt();
         Node nodeMid = new Node(data);
         n1.next=nodeMid;
-        nodeMid.previous=n1;
+        nodeMid.back=n1;
         nodeMid.next=n2;
-        n2.previous=nodeMid;
+        n2.back=nodeMid;
         System.out.println();
     }
     public void remove (int data)
     {
         Node n2 =searchNode(data);
-        Node n1=n2.previous;
+        Node n1=n2.back;
         Node n3= n2.next;
         n1.next=n3;
-        n3.previous=n1;
+        n3.back=n1;
         System.out.println();
     }
     public void removeFirst ()
     {
-        head.next.previous=null;
+        head.next.back=null;
         head=head.next;
         System.out.println();
     }
     public void removeLast ()
     {
-
+        tail.back.next=null;
+        tail=tail.back;
+        System.out.println();
     }
 }
