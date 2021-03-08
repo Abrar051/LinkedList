@@ -125,4 +125,14 @@ public class DoubleLinkedList {
         n3.previous=n1;
         System.out.println();
     }
+    public void removeFirst ()
+    {
+        head.next.previous=null;
+        head=head.next;
+        System.out.println();
+    }
+    public void removeLast ()
+    {
+
+    }
 }

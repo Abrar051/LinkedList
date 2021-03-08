@@ -17,6 +17,7 @@ public class Main {
         obj.addInMid(9,10);
         obj.display();
         obj.remove(8);
+        obj.removeFirst();
         obj.display();
         obj.reverseDisplay();
     }
