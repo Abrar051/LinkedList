@@ -51,4 +51,22 @@ public class DoubleLinkedList {
             }
         }
     }
+    public void addAtFirst (int data)
+    {
+        Node newNode = new Node(data);
+        Node temp=head;
+        if (head==null)
+        {
+            System.out.println("List is empty");
+            head=tail=newNode;
+            head.previous=null;
+        }
+        else
+        {
+            newNode.next=head;
+            head.previous=newNode;
+            head=newNode;
+            newNode.previous=null;
+        }
+    }
 }

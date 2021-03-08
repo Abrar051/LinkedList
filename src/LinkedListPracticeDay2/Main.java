@@ -11,6 +11,9 @@ public class Main {
         obj.addNode(9);
         obj.addNode(10);
         obj.display();
+        obj.addAtFirst(50);
+        System.out.println();
+        obj.display();
         System.out.println();
         obj.reverseDisplay();
     }
