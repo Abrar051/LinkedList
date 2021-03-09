@@ -16,18 +16,19 @@ public class CircularList {
         else
         {
             tail.next=newNode;
-            tail=newNode;
             newNode.next=head;
+            tail=newNode;
         }
     }
     public void display ()
     {
         Node counter=head;
-        while (counter!=null)
+        while (counter!=tail)
         {
             System.out.print(counter.data+" ");
             counter=counter.next;
         }
+        System.out.print(tail.data);
         System.out.println();
     }
     public Node searchNode (int val)
@@ -45,6 +46,47 @@ public class CircularList {
                 return current;
             }
             current=current.next;
+        }
+    }
+    public void remove (int data)
+    {
+        Node n = searchNode(data);
+        Node counter = head;
+        Node currentBack;
+        if (n==null)
+        {
+            System.out.println("No matches found on list ");
+        }
+        else if (n==head)
+        {
+            head=head.next;
+            tail.next=head;
+        }
+        else if (n==tail)
+        {
+            Node pointer=head;
+            while (true)
+            {
+                if (pointer.next==tail)
+                {
+                    pointer.next=head;
+                    tail=pointer;
+                    tail.next=head;
+                }
+                pointer=pointer.next;
+            }
+        }
+        else
+        {
+            while (counter!=null)
+            {
+                if (counter.next==n)
+                {
+                    counter.next=counter.next.next;
+                    break;
+                }
+                counter=counter.next;
+            }
         }
     }
     public void traverse ()

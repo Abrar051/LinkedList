@@ -8,7 +8,10 @@ public class Main {
         obj.addNode(3);
         obj.addNode(6);
         obj.addNode(7);
+        obj.addNode(9);
         //obj.display();
-        obj.traverse();
+        //obj.traverse();
+        obj.remove(9);
+        obj.display();
     }
 }
