@@ -33,7 +33,6 @@ public class CircularList {
     public void traverse ()
     {
         Node counter=head;
-        Node backWard = head;
         while (true) {
             System.out.println("Enter f to forward and break to break : ");
             String str = input.next();

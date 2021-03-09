@@ -52,7 +52,6 @@ public class CircularDouble {
                     break label;
                 default:
                     System.out.println("Invalid input");
-                    continue;
             }
         }
     }
