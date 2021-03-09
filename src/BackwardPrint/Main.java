@@ -10,7 +10,7 @@ public class Main {
         obj.addNode(5);
         obj.addNode(6);
         obj.display();
-        //obj.reverse(obj.head);
+        obj.reverse();
         obj.display();
     }
 }

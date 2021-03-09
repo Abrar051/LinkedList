@@ -69,9 +69,9 @@ public class CircularList {
             {
                 if (pointer.next==tail)
                 {
-                    pointer.next=head;
                     tail=pointer;
-                    tail.next=head;
+                    pointer.next=head;
+                    break;
                 }
                 pointer=pointer.next;
             }

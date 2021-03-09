@@ -23,21 +23,17 @@ public class Reverse {
         }
         System.out.println();
     }
+    public Node reverse(Node head)
+    {
+        if (head == null || head.next == null)
+            return head;
+        Node newHead = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
     public void reverse ()
     {
-        //step at first break list from last
-        //then make another list whose head will start from tail last
-        Node current = head;
-        Node previous = null;
-        Node next = current.next;
-        while (current!=null)
-        {
-            /*next=current.next;
-            current.next=prev;
-            prev=current;
-            current=next;*/
-            previous=current.next;
-            head=next;
-        }
+        head = reverse(head);
     }
 }
