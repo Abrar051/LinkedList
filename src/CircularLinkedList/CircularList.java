@@ -30,6 +30,23 @@ public class CircularList {
         }
         System.out.println();
     }
+    public Node searchNode (int val)
+    {
+        Node current = head;
+        while (true)
+        {
+            if (current==null)
+            {
+                System.out.println("No item in linked list");
+                return null;
+            }
+            else if (current.data==val)
+            {
+                return current;
+            }
+            current=current.next;
+        }
+    }
     public void traverse ()
     {
         Node counter=head;
