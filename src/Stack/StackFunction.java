@@ -6,7 +6,7 @@ public class StackFunction {
     public Node head = null;
     public Node tail = null;
 
-    public void push(int data) {
+    public void push(int data) {     //this push is done from tail and head stays in root
         Node newNode = new Node(data);
         if (head == null) {
             head = tail = newNode;
@@ -14,6 +14,19 @@ public class StackFunction {
         } else {
             tail.next = newNode;
             tail = newNode;
+        }
+    }
+    public void push2 (int data)   //push from head
+    {
+        Node newNode = new Node (data);
+        if (head==null)
+        {
+            head=tail=newNode;
+        }
+        else
+        {
+            newNode.next=head;
+            head=newNode;
         }
     }
 
@@ -30,7 +43,7 @@ public class StackFunction {
         }
     }
 
-    public void pop() //remove element from last
+    public void pop() //remove element from tail
     {
         Node current = head;
         while (current.next != tail) {
@@ -41,8 +54,20 @@ public class StackFunction {
         tail.next = null;
     }
 
+    public void pop2 () //start pop from head
+    {
+        if (head==null)
+        {
+            System.out.println("List is empty");
+        }
+        else
+        {
+            head=head.next;
+        }
+    }
     public void display() {
         Node current = head;
+        System.out.println();
         while (true) {
             if (current == null) {
                 break;

@@ -8,8 +8,13 @@ public class Main {
             obj.push(i);
         }
         obj.display();
-        System.out.println();
         obj.pop();
+        obj.display();
+        obj.push2(9);
+        obj.display();
+        obj.pop2();
+        obj.display();
+        obj.pop2();
         obj.display();
     }
 }
