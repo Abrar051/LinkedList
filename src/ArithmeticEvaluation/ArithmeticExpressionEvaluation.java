@@ -32,15 +32,32 @@ public class ArithmeticExpressionEvaluation {
         Node previous = searchPrevious(n1.obj);
         return 0;
     }
-    void debug (char n)
+    public int result (char n)
     {
         Node n1 = searchNode(n);
         int a= Integer.parseInt(String.valueOf(searchPrevious(n1.obj).obj));
         int b = Integer.parseInt(String.valueOf(searchNode(n).next.obj));
-        System.out.println(a+ " "+b);
+        if (n1.obj=='+')
+        {
+            return a+b;
+        }
+        else if (n1.obj=='-')
+        {
+            return a-b;
+        }
+        else if (n1.obj=='*')
+        {
+            return a*b;
+        }
+        else if (n1.obj=='/')
+        {
+            return a/b;
+        }
+        return 0;
     }
 
-    public boolean result(char previous, char next, char sign) {
+
+    public boolean result1(char previous, char next, char sign) {
 
         char[] obj = {'(',')','{','}','[',']'};
         char c=  '+';
