@@ -9,8 +9,10 @@ public class Main {
         obj.addNode(4);
         obj.addNode(5);
         obj.addNode(6);
+        obj.addNode(9);
+        obj.addNode(14);
         obj.display();
-        obj.reverse();
+        obj.reverseNode();
         obj.display();
     }
 }
