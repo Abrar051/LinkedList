@@ -1,5 +1,7 @@
 package ArithmeticEvaluation;
 
+import java.util.Arrays;
+
 public class ArithmeticExpressionEvaluation {
     public Node head = null;
     public Node tail = null;
@@ -27,23 +29,23 @@ public class ArithmeticExpressionEvaluation {
 
     public int operation(Node n1) {
         Node next = n1.next;
-        Node previous = searchPrevious(n1);
-        return result(previous.obj, next.obj, n1.obj);
+        Node previous = searchPrevious(n1.obj);
+        return 0;
+    }
+    void debug (char n)
+    {
+        Node n1 = searchNode(n);
+        int a= Integer.parseInt(String.valueOf(searchPrevious(n1.obj).obj));
+        int b = Integer.parseInt(String.valueOf(searchNode(n).next.obj));
+        System.out.println(a+ " "+b);
     }
 
+    public boolean result(char previous, char next, char sign) {
 
-    public int result(char previous, char next, char sign) {
-        while (true) {
-            if (sign == '+') {
-                return previous + next;
-            } else if (sign == '-') {
-                return previous - next;
-            } else if (sign == '*') {
-                return previous * next;
-            } else if (sign == '/') {
-                return previous / next;
-            }
-        }
+        char[] obj = {'(',')','{','}','[',']'};
+        char c=  '+';
+        return Arrays.asList(obj).contains(c);
+
     }
 
 
@@ -60,13 +62,13 @@ public class ArithmeticExpressionEvaluation {
         }
     }
 
-    public Node searchPrevious(Node n) {
+    public Node searchPrevious(char n) {
         Node current = head;
         Node previous;
         while (true) {
             if (head == null) {
                 return null;
-            } else if (current.next == n) {
+            } else if (current.next.obj == n) {
                 return current;
             }
             current = current.next;
