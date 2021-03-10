@@ -23,23 +23,23 @@ public class Reverse {
         System.out.println();
     }
 
-    public Node reverse(Node head) {
+    /*public Node reverse(Node head) {
         if (head == null || head.next == null)
             return head;
         Node newHead = reverse(head.next);
         head.next.next = head;
         head.next = null;
         return newHead;
-    }
+    }*/
 
     public void reverseNode() {
         Node newHead = null;
         Node current = head;
         while (current != null) {
-            Node n = current.next;
+            Node temp = current.next;
             current.next = newHead;
             newHead = current;
-            current = n;
+            current = temp;
         }
         head = newHead;
     }
