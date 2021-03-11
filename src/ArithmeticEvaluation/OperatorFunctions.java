@@ -3,39 +3,39 @@ package ArithmeticEvaluation;
 import java.util.Stack;
 
 public class OperatorFunctions {
-    public double compute(String sequence) {
+    public double compute(String str) {
         Stack<Double> numberStack = new Stack<Double>();
-        Stack<Calculator.Operator> operatorStack = new Stack<Calculator.Operator>();
-        for (int i = 0; i < sequence.length(); i++) {
+        Stack<Operator> operatorStack = new Stack<Operator>();
+        for (int i = 0; i < str.length(); i++) {
             try {
-                int number = parseNumber(sequence, i);
+                int number = parseNumber(str, i);
                 numberStack.push((double) number);
 
                 i = i + Integer.toString(number).length();
-                if (i >= sequence.length()) {
+                if (i >= str.length()) {
                     break;
                 }
 
-                Calculator.Operator op = parseOperator(sequence, i);
+                Operator op = parseOperator(str, i);
                 collapseTop(numberStack, operatorStack, op);
                 operatorStack.push(op);
             } catch (NumberFormatException ex) {
                 return Integer.MIN_VALUE;
             }
         }
-        collapseTop(numberStack, operatorStack, Calculator.Operator.BLANK);
+        collapseTop(numberStack, operatorStack, Operator.blank);
         if (numberStack.size() == 1 && operatorStack.size() == 0) {
             return numberStack.pop();
         }
         return 0;
     }
 
-    private void collapseTop(Stack<Double> numberStack, Stack<Calculator.Operator> operatorStack, Calculator.Operator futureTop) {
+    private void collapseTop(Stack<Double> numberStack, Stack<Operator> operatorStack, Operator futureTop) {
         while (numberStack.size() >= 2 && operatorStack.size() >= 1) {
             if (priorityOfOperator(futureTop) <= priorityOfOperator(operatorStack.peek())) {
                 double second = numberStack.pop();
                 double first = numberStack.pop();
-                Calculator.Operator op = operatorStack.pop();
+                Operator op = operatorStack.pop();
                 double result = applyOp(first, op, second);
                 numberStack.push(result);
             } else {
@@ -44,15 +44,15 @@ public class OperatorFunctions {
         }
     }
 
-    private double applyOp(double left, Calculator.Operator op, double right) {
+    private double applyOp(double left, Operator op, double right) {
         switch (op) {
-            case ADD:
+            case add:
                 return left + right;
-            case SUBTRACT:
+            case subtract:
                 return left - right;
-            case MULTIPLY:
+            case multiply:
                 return left * right;
-            case DIVIDE:
+            case divide:
                 return left / right;
             default:
                 return right;
@@ -60,17 +60,15 @@ public class OperatorFunctions {
 
     }
 
-    private int priorityOfOperator(Calculator.Operator op) {
+    private int priorityOfOperator(Operator op) {
         switch (op) {
-            case ADD:
+            case add:
+            case subtract:
                 return 1;
-            case SUBTRACT:
-                return 1;
-            case MULTIPLY:
+            case multiply:
+            case divide:
                 return 2;
-            case DIVIDE:
-                return 2;
-            case BLANK:
+            case blank:
                 return 0;
         }
         return 0;
@@ -85,20 +83,20 @@ public class OperatorFunctions {
         return Integer.parseInt(sb.toString());
     }
 
-    private Calculator.Operator parseOperator(String sequence, int offset) {
+    private Operator parseOperator(String sequence, int offset) {
         if (offset < sequence.length()) {
             char op = sequence.charAt(offset);
             switch (op) {
                 case '+':
-                    return Calculator.Operator.ADD;
+                    return Operator.add;
                 case '-':
-                    return Calculator.Operator.SUBTRACT;
+                    return Operator.subtract;
                 case '*':
-                    return Calculator.Operator.MULTIPLY;
+                    return Operator.multiply;
                 case '/':
-                    return Calculator.Operator.DIVIDE;
+                    return Operator.divide;
             }
         }
-        return Calculator.Operator.BLANK;
+        return Operator.blank;
     }
 }
