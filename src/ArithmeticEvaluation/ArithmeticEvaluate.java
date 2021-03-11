@@ -4,14 +4,13 @@ public class ArithmeticEvaluate {
     public static void main(String[] args) {
         ArithmeticExpressionEvaluation obj = new ArithmeticExpressionEvaluation();
         EvaluateResult obj2 = new EvaluateResult();
+        SimplifiedExpression obj3 = new SimplifiedExpression();
+        EvaluateString obj4 = new EvaluateString();
         Scanner input = new Scanner(System.in);
         System.out.println("Enter string to evaluate : ");
         String str = input.next();
-        obj.transferToNode(str);
-        //obj.evaluate();
-        //System.out.println(obj.searchPrevious(obj.searchNode('+')).obj);
-        //System.out.println(obj.result());
-        //System.out.println(obj.operation(obj.searchNode('-')));
-        System.out.println(obj2.evaluate(str));
+        //System.out.println(obj2.evaluate(str));
+        System.out.println(obj3.stringCompress("(23+56)"));
+        System.out.println(obj4.evaluate(str));
     }
 }
