@@ -1,10 +1,13 @@
 package ArithmeticEvaluation;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArithmeticExpressionEvaluation {
     public Node head = null;
     public Node tail = null;
+    ArrayList<Character> obj= new ArrayList();
+
 
     public void evaluate() {
         Node current = head;
@@ -27,43 +30,35 @@ public class ArithmeticExpressionEvaluation {
         }
     }
 
-    public int result ()
+
+    public void operation (Node sign)
     {
-        Node current=head;
-        Node n1;
-        while (current!=null)
+        int result;
+        int a= Integer.parseInt(String.valueOf(searchPrevious(sign.obj).obj));
+        int b = Integer.parseInt(String.valueOf(searchNode(sign.next.obj).obj));
+        if (sign.obj=='+')
         {
-            current=current.next;
-            if (current.obj=='+' || current.obj=='-' || current.obj=='*' || current.obj=='/')
-            {
-                break;
-            }
+            result = a+b;
         }
-        n1=current;
-        int a= Integer.parseInt(String.valueOf(searchPrevious(current.obj).obj));
-        int b = Integer.parseInt(String.valueOf(searchNode(current.next.obj).obj));
-        //int a=searchPrevious(current.obj).obj;
-        //int b= current.next.obj;
-        if (n1.obj=='+')
+        else if (sign.obj=='-')
         {
-            return a+b;
+            result = a-b;
         }
-        else if (n1.obj=='-')
+        else if (sign.obj=='*')
         {
-            return a-b;
+            result = a*b;
         }
-        else if (n1.obj=='*')
+        else if (sign.obj=='/')
         {
-            return a*b;
+            result = a/b;
         }
-        else if (n1.obj=='/')
-        {
-            return a/b;
-        }
-        return 0;
+
     }
 
+    public void intToChar (int i)
+    {
 
+    }
     public boolean result1(char c) {
 
         char[] obj = {'+','-','*','/'};
@@ -84,9 +79,25 @@ public class ArithmeticExpressionEvaluation {
         }
     }
 
-    public int scanNumber (){
-
-        return 0;
+    public int scanNumber (String str){
+        int power=0,result=1;
+        for (int i=0;i<str.length();i++)
+        {
+            if (Character.isDigit(str.charAt(i))==true)//started scanning number
+            {
+                obj.add(str.charAt(i));
+                power++;
+                if (Character.isDigit(str.charAt(i))==false)
+                {
+                    break;
+                }
+            }
+        }
+        for (int i=0;i<power;i++)
+        {
+            result= Integer.parseInt(String.valueOf(obj.get(i)));
+        }
+        return result;
     }
     public Node searchPrevious(char n) {
         Node current = head;
@@ -101,16 +112,19 @@ public class ArithmeticExpressionEvaluation {
         }
     }
 
-    public void addNode(char ch) {
-        Node n = new Node(ch);
+    public void addNode(char data) {
+        Node newNode = new Node(data);
         if (head == null) {
-            head = tail = n;
-            tail.next = null;
+            head = tail = newNode;
         } else {
-            tail.next = n;
-            tail = n;
+            tail.next = newNode;
+            newNode.back = tail;
+            newNode.next = head;
+            head.back = newNode;
+            tail = newNode;
         }
     }
+
 
     public void display() {
         Node current = head;
