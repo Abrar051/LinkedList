@@ -9,20 +9,6 @@ public class ArithmeticExpressionEvaluation {
     ArrayList<Character> obj= new ArrayList();
 
 
-    public void evaluate() {
-        Node current = head;
-        while (current != null) {
-            if (current.obj == '(') {
-                System.out.println();
-            } else if (current.obj == ' ') {
-                System.out.println();
-            } else if (current.obj == ' ') {
-                System.out.println();
-            }
-            current = current.next;
-        }
-    }
-
     public void transferToNode(String str) {
         //first case head is null
         for (int i = 0; i < str.length(); i++) {

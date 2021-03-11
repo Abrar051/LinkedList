@@ -1,71 +1,56 @@
 package ArithmeticEvaluation;
 
 import java.util.Stack;
-
+//step 4 : calculate final result of the expression
 public class EvaluateResult {
-    public Double evaluate (String input)
-    {
+    public Double evaluate(String input) {
         /* Create stacks for operators and operands */
-        Stack<Integer> operator  = new Stack<Integer>();
+        Stack<Integer> operator = new Stack<Integer>();
         Stack<Double> value = new Stack<Double>();
         /* Create temporary stacks for operators and operands */
-        Stack<Integer> optmp  = new Stack<Integer>();
+        Stack<Integer> optmp = new Stack<Integer>();
         Stack<Double> valtmp = new Stack<Double>();
-        System.out.println("Evaluation Of Arithmetic Expression Using Stacks Test\n");
-        System.out.println("Enter expression\n: ");
         input = "0" + input;
-        input = input.replaceAll("-","+-");
+        input = input.replaceAll("-", "+-");
         /* Store operands and operators in respective stacks */
         String temp = "";
-        for (int i = 0;i < input.length();i++)
-        {
+        for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
             if (ch == '-')
                 temp = "-" + temp;
-            else if (ch != '+' &&  ch != '*' && ch != '/')
+            else if (ch != '+' && ch != '*' && ch != '/')
                 temp = temp + ch;
-            else
-            {
+            else {
                 value.push(Double.parseDouble(temp));
-                operator.push((int)ch);
+                operator.push((int) ch);
                 temp = "";
             }
         }
         value.push(Double.parseDouble(temp));
-        char operators[] = {'/','*','+'};
+        char operators[] = {'/', '*', '+'};
         /* Evaluation of expression */
-        for (int i = 0; i < 3; i++)
-        {
+        for (int i = 0; i < 3; i++) {
             boolean it = false;
-            while (!operator.isEmpty())
-            {
+            while (!operator.isEmpty()) {
                 int opt = operator.pop();
                 double v1 = value.pop();
                 double v2 = value.pop();
-                if (opt == operators[i])
-                {
+                if (opt == operators[i]) {
                     /* if operator matches evaluate and store in temporary stack */
-                    if (i == 0)
-                    {
+                    if (i == 0) {
                         valtmp.push(v2 / v1);
                         it = true;
                         break;
-                    }
-                    else if (i == 1)
-                    {
+                    } else if (i == 1) {
                         valtmp.push(v2 * v1);
                         it = true;
                         break;
-                    }
-                    else if (i == 2)
-                    {
+                    } else if (i == 2) {
                         valtmp.push(v2 + v1);
                         it = true;
                         break;
                     }
-                }
-                else
-                {
+                } else {
                     valtmp.push(v1);
                     value.push(v2);
                     optmp.push(opt);
