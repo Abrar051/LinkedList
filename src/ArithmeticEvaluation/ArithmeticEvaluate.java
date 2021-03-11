@@ -9,7 +9,6 @@ public class ArithmeticEvaluate {
         obj.transferToNode(str);
         //obj.evaluate();
         //System.out.println(obj.searchPrevious(obj.searchNode('+')).obj);
-        System.out.println(obj.result('+'));
-        obj.display();
+        System.out.println(obj.result());
     }
 }

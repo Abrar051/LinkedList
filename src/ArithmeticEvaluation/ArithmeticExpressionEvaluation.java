@@ -27,16 +27,23 @@ public class ArithmeticExpressionEvaluation {
         }
     }
 
-    public int operation(Node n1) {
-        Node next = n1.next;
-        Node previous = searchPrevious(n1.obj);
-        return 0;
-    }
-    public int result (char n)
+    public int result ()
     {
-        Node n1 = searchNode(n);
-        int a= Integer.parseInt(String.valueOf(searchPrevious(n1.obj).obj));
-        int b = Integer.parseInt(String.valueOf(searchNode(n).next.obj));
+        Node current=head;
+        Node n1;
+        while (current!=null)
+        {
+            current=current.next;
+            if (current.obj=='+' || current.obj=='-' || current.obj=='*' || current.obj=='/')
+            {
+                break;
+            }
+        }
+        n1=current;
+        int a= Integer.parseInt(String.valueOf(searchPrevious(current.obj).obj));
+        int b = Integer.parseInt(String.valueOf(searchNode(current.next.obj).obj));
+        //int a=searchPrevious(current.obj).obj;
+        //int b= current.next.obj;
         if (n1.obj=='+')
         {
             return a+b;
@@ -57,12 +64,10 @@ public class ArithmeticExpressionEvaluation {
     }
 
 
-    public boolean result1(char previous, char next, char sign) {
+    public boolean result1(char c) {
 
-        char[] obj = {'(',')','{','}','[',']'};
-        char c=  '+';
+        char[] obj = {'+','-','*','/'};
         return Arrays.asList(obj).contains(c);
-
     }
 
 
@@ -79,6 +84,10 @@ public class ArithmeticExpressionEvaluation {
         }
     }
 
+    public int scanNumber (){
+
+        return 0;
+    }
     public Node searchPrevious(char n) {
         Node current = head;
         Node previous;
