@@ -11,6 +11,7 @@ public class ArithmeticEvaluate {
         //obj.evaluate();
         //System.out.println(obj.searchPrevious(obj.searchNode('+')).obj);
         //System.out.println(obj.result());
+        //System.out.println(obj.operation(obj.searchNode('-')));
         System.out.println(obj2.evaluate(str));
     }
 }

@@ -17,28 +17,28 @@ public class ArithmeticExpressionEvaluation {
     }
 
 
-    public void operation (Node sign)
+    public int operation (Node sign)
     {
         int result;
         int a= Integer.parseInt(String.valueOf(searchPrevious(sign.obj).obj));
         int b = Integer.parseInt(String.valueOf(searchNode(sign.next.obj).obj));
         if (sign.obj=='+')
         {
-            result = a+b;
+            return  a+b;
         }
         else if (sign.obj=='-')
         {
-            result = a-b;
+            return a-b;
         }
         else if (sign.obj=='*')
         {
-            result = a*b;
+            return  a*b;
         }
         else if (sign.obj=='/')
         {
-            result = a/b;
+            return  a/b;
         }
-
+        return 0;
     }
 
     public void intToChar (int i)
