@@ -1,0 +1,2 @@
+String buffer is a peer class of string that provides much of the functionality of strings
+String represents a fixed length character sequence where string buffer represents growable and writable character sequence
