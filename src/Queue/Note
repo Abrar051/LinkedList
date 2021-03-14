@@ -1,0 +1,9 @@
+Remember queue
+First in first out and last in , last out
+task
+based on linked list
+write 2 functions
+pop and push
+push will add an element at the last point
+pop will pick from first
+This queue package is based on linked list
