@@ -8,11 +8,8 @@ public class EvaluateString {
     public static int evaluate(String str) {
         char[] ch = str.toCharArray();
         Stack<Integer> values = new Stack<Integer>();
-
         Stack<Character> ops = new Stack<Character>();
-
         for (int i = 0; i < ch.length; i++) {
-
             if (ch[i] == ' ')
                 continue;
             if (ch[i] >= '0' && ch[i] <= '9') {
@@ -38,8 +35,7 @@ public class EvaluateString {
         return values.pop();
     }
 
-    public static boolean presedence(
-            char op1, char op2) {
+    public static boolean presedence(char op1, char op2) {
         if (op2 == '(' || op2 == ')')
             return false;
         if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-'))
