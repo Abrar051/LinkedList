@@ -44,8 +44,8 @@ public class EvaluateString {
             return true;
     }
 
-    public static int operation(char op, int b, int a) {
-        switch (op) {
+    public static int operation(char operator, int b, int a) {
+        switch (operator) {
             case '+':
                 return a + b;
             case '-':
@@ -53,11 +53,12 @@ public class EvaluateString {
             case '*':
                 return a * b;
             case '/':
-                if (b == 0)
-                    throw new
-                            UnsupportedOperationException(
-                            "Cannot divide by zero");
-                return a / b;
+                if (b == 0) {
+                    System.out.println("Can't be divided by zero ");
+                    return 0;
+                } else {
+                    return a / b;
+                }
         }
         return 0;
     }
