@@ -1,8 +1,7 @@
 package Queue.Generic;
 
-import java.util.LinkedList;
 
-public class GenericBasedFunction<T> {
+public class Queue<T> {
     public Node<T> head = null;
     public Node<T> tail = null;
 
@@ -33,6 +32,7 @@ public class GenericBasedFunction<T> {
     public void popPrint() {
         System.out.println("Popped data is " + pop());
     }
+
 
     public void display() {
         Node<T> current = head;

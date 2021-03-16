@@ -1,19 +1,57 @@
 package Queue.Generic;
 
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        GenericBasedFunction <Integer> obj = new GenericBasedFunction<Integer> ();
-        for (int i=0;i<10;i++)
+        Queue<Integer> integerQueue = new Queue<>();
+        Stack<Integer> integerStack = new Stack<>();
+        ArrayQueue<Integer> integerArrayQueue = new ArrayQueue<>();
+        ArrayStack<Integer> integerArrayStack = new ArrayStack<>();
+        for (int i=0;i<5;i++)
         {
-            obj.push(i);
+            integerQueue.push(i);
         }
-        obj.push(12);
-        obj.display();
-        obj.popPrint();
-        obj.popPrint();
-        obj.display();
+        for (int i=0;i<5;i++)
+        {
+            integerStack.push(i);
+        }
+        System.out.println("Popped data from queue is : "+integerQueue.pop());
+        System.out.println("Popped data from queue is : "+integerQueue.pop());
+        System.out.println("Popped data from queue is : "+integerQueue.pop());
+        integerQueue.display();
+        integerStack.display();
+        System.out.println("Popped data from stack is : "+integerStack.pop());
+        System.out.println("Popped data from stack is : "+integerStack.pop());
+        System.out.println("Popped data from stack is : "+integerStack.pop());
+        System.out.println("Popped data from stack is : "+integerStack.pop());
+
+        //Array queue
+
+        for (int i =0;i<5;i++)
+        {
+            integerArrayQueue.push(i);
+            integerArrayStack.push(i);
+        }
+        integerArrayQueue.printArray();
+        System.out.println("Popped data is : "+integerArrayQueue.pop());
+        System.out.println("Popped data is : "+integerArrayQueue.pop());
+        System.out.println("Popped data is : "+integerArrayQueue.pop());
+        System.out.println("Popped data is : "+integerArrayQueue.pop());
+        System.out.println("Popped data is : "+integerArrayQueue.pop());
+        System.out.println("Popped data is : "+integerArrayQueue.pop());
+        integerArrayQueue.printArray();
+
+        //Array stack
+
+        integerArrayStack.printArray();
+        System.out.println("Popped data is : "+integerArrayStack.pop());
+        System.out.println("Popped data is : "+integerArrayStack.pop());
+        System.out.println("Popped data is : "+integerArrayStack.pop());
+        System.out.println("Popped data is : "+integerArrayStack.pop());
+        System.out.println("Popped data is : "+integerArrayStack.pop());
+        System.out.println("Popped data is : "+integerArrayStack.pop());
+        integerArrayStack.printArray();
+
+
     }
 }
