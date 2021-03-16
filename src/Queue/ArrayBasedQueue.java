@@ -12,6 +12,10 @@ public class ArrayBasedQueue {
         array[this.array.length - 1] = data;
     }
 
+    public void add (int data , int position)
+    {
+        
+    }
     public void pop ()
     {
         int newSize = this.array.length-1;

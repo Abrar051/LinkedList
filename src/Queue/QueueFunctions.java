@@ -1,11 +1,11 @@
 package Queue;
 
-public class QueueFunctions {
-    public Node head = null;
-    public Node tail = null;
+public class QueueFunctions <T> {
+    public Node<T> head = null;
+    public Node<T> tail = null;
 
-    public void push(int data) {
-        Node newNode = new Node(data);
+    public void push(T data) {
+        Node<T>newNode = new Node(data);
         if (head == null) {
             head = tail = newNode;
         } else {
@@ -28,19 +28,26 @@ public class QueueFunctions {
         }
         System.out.println();
     }
-    public void pop ()
+    public int pop ()
     {
         Node current = head;
         if (head==null)
         {
             System.out.println("List is empty");
+            return 0;
         }
         else
         {
+            Node previous = head;
             head=head.next;
+            return (int) previous.data;
         }
     }
-    public int queueMemberNumber ()
+    public void popPrint ()
+    {
+        System.out.println("Popped data is "+pop());
+    }
+    public Object queueMemberNumber ()
     {
         Node current = head;
         int number=0;

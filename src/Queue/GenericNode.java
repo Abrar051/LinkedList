@@ -1,9 +1,9 @@
 package Queue;
 
-public class Node<T> {
-    Node next;
+public class GenericNode<T> {
+    GenericNode next;
     T data;
-    Node (T data)
+    GenericNode(T data)
     {
         this.data=data;
         this.next=null;
