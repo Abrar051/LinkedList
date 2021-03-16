@@ -1,0 +1,14 @@
+Binary tree
+
+main tree :              A
+                     B        C
+                   D   E    F   G
+                 H        I       J
+
+Pre order traversal method :
+(A-B-D-H)-(E)-(C-F-I)-(G-J)
+In order traversal method :
+(H-D-B)-E-A-(I-F-C)-(G-J)
+Post order traversal method:
+step up level by level
+H-D-E-B-I-F-G-J-C-A
