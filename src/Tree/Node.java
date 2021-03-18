@@ -2,12 +2,13 @@ package Tree;
 
 public class Node {
     int data;
-    Node next;
-    Node back;
+    Node right;
+    Node left;
     Node (int data)
     {
         this.data=data;
-        this.next=null;
+        this.right=null;
+        this.left=null;
     }
 
 }

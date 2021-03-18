@@ -16,3 +16,61 @@ binary search tree
 
 different operations
 insertion , deletion or sorting
+
+
+searching particular nodes in binary tree
+
+
+***Binary search tree definition :
+binary search tree is a type of tree where the nodes are arranged in such a way that the left side branch
+contains less value than the root and the right side branch contains high value than the root
+
+example :
+
+       8
+      / \
+     3   10
+    / \    \
+   1   6    14
+        \   /
+         7 13
+
+here root 8
+left side 8-3-1 where value is decreasing than root from subbranch
+
+right side 3-6-7 and 8-10-14 increasing value
+and 14-13 left side decreasing value
+
+operations :
+1 adding a node
+2 deleting a node
+
+
+struct search
+
+struct node* search(int data){
+   struct node *current = root;
+   printf("Visiting elements: ");
+
+   while(current->data != data){
+
+      if(current != NULL) {
+         printf("%d ",current->data);
+
+         //go to left tree
+         if(current->data > data){
+            current = current->leftChild;
+         }  //else go to right tree
+         else {
+            current = current->rightChild;
+         }
+
+         //not found
+         if(current == NULL){
+            return NULL;
+         }
+      }
+   }
+
+   return current;
+}
