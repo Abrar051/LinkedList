@@ -14,6 +14,7 @@ public class Main {
         treeFunctions.display();
         treeFunctions.delete(40);
         treeFunctions.delete(250);
+        treeFunctions.delete(500);
         System.out.println();
         treeFunctions.display();
         //treeFunctions.delete(root,800);

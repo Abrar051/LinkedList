@@ -47,8 +47,6 @@ public class TreeFunctions {
     /* / */
 
 
-
-
     public int minValue(Node root) {
         int min = root.data;
         while (root.left != null) {
@@ -57,7 +55,6 @@ public class TreeFunctions {
         }
         return min;
     }
-
 
 
     public void delete(int data) {
@@ -78,7 +75,7 @@ public class TreeFunctions {
 
 
         else {
-            if (root.left == null)  // node with only one child or no child
+            if (root.left == null)  // node with 2 child
                 return root.right;
             else if (root.right == null)
                 return root.left;
