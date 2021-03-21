@@ -1,0 +1,21 @@
+A heap is a type of binary tree which has either smaller or bigger value than child
+if the heap parent node is bigger than child node then all node will be smaller (max heap)
+if the heap parent node is smaller the child value will increase (min heap)
+
+           90
+          /  \
+         80  70
+        / \  / \
+       60 50 40 30
+
+      pic of a max heap
+               20
+              /  \
+             30  40
+            / \  / \
+           50 60 70 80
+
+      pic of a min heap
+
+
+
