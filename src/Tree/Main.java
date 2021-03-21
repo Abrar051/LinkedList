@@ -12,7 +12,7 @@ public class Main {
         treeFunctions.add(250);
         treeFunctions.add(800);
         treeFunctions.display();
-        root=treeFunctions.delete(root,40);
+        treeFunctions.delete(40);
         System.out.println();
         treeFunctions.display();
         //treeFunctions.delete(root,800);
