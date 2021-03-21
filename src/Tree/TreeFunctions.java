@@ -2,7 +2,6 @@ package Tree;
 
 public class TreeFunctions {
     public Node root = null;
-    public Node tail = null;
 
     public Node getMinimumValue(Node current) {
         while (current.left != null) {

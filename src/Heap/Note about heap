@@ -17,5 +17,8 @@ if the heap parent node is smaller the child value will increase (min heap)
 
       pic of a min heap
 
+The main difference is that Binary Search Tree doesn’t allow duplicates, however, the Heap does.
+The BST is ordered, but the Heap is not. So, if order matters, then it is better to use BST
 
+priority queue
 
