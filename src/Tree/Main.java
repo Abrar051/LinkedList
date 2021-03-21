@@ -13,6 +13,7 @@ public class Main {
         treeFunctions.add(800);
         treeFunctions.display();
         treeFunctions.delete(40);
+        treeFunctions.delete(250);
         System.out.println();
         treeFunctions.display();
         //treeFunctions.delete(root,800);

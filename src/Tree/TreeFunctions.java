@@ -47,18 +47,9 @@ public class TreeFunctions {
     /* / */
 
 
-    public void findParent(Node node, int data, int parent) {
-        if (node == null)
-            return;
-        if (node.data == data) {
-            System.out.print(parent);
-        } else {
-            findParent(node.left, data, node.data);
-            findParent(node.right, data, node.data);
-        }
-    }
 
-    private int minValue(Node root) {
+
+    public int minValue(Node root) {
         int min = root.data;
         while (root.left != null) {
             min = root.left.data;
@@ -68,20 +59,26 @@ public class TreeFunctions {
     }
 
 
+
     public void delete(int data) {
         root = delete(root, data);
     }
 
+    //deletion for 3 case , 1 is leaf node , 2 is 1 child and 3 is 2 child
+
     public Node delete(Node root, int data) {
-        if (root == null)
+        if (root == null)  //empty tree
             return null;
-        if (data < root.data)
+
+
+        if (data < root.data)  //simple binary tree with no branch
             root.left = delete(root.left, data);
         else if (data > root.data)
             root.right = delete(root.right, data);
+
+
         else {
-            // node with only one child or no child
-            if (root.left == null)
+            if (root.left == null)  // node with only one child or no child
                 return root.right;
             else if (root.right == null)
                 return root.left;
