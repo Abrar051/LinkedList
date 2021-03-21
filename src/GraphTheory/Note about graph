@@ -1,0 +1,17 @@
+A graph is a set of node and edges
+the node which holds data is called vertex and the line connecting 2 vertices is called edge
+connected graph :
+
+cycle : a cycle is a graph where first and last vertices is same
+type 4
+1 : undirected
+2 : directed
+3 : weighted
+4 : connected
+
+memory storing system
+
+a graph is stored in the computers memory using matrix (2d array)
+
+
+next day task exercise about graph
