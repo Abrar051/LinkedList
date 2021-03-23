@@ -16,15 +16,15 @@ public class TowerOfHanoi {
     {
         if (diskNumber==1)
         {
-            System.out.println("Moving disk from "+source+" to destination "+dest);
+            System.out.println("Move disk "+diskNumber +" from tower "+source+" to destination tower "+dest);
             return;
         }
         else
         {
             Hanoi(diskNumber-1,source,aux,dest);
-            System.out.println("Move "+diskNumber +" from "+source+" to destination "+dest);
+            System.out.println("Move disk "+diskNumber +" from tower "+source+" to destination tower "+dest);
             Hanoi(diskNumber-1,aux,dest,source);
-            System.out.println("Move "+diskNumber +" from "+source+" to destination "+dest);
+            System.out.println("Move disk "+diskNumber +" from tower "+source+" to destination tower "+dest);
         }
     }
 }

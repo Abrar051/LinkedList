@@ -46,3 +46,6 @@ Levels − Level of a node represents the generation of a node.
 
 keys − Key represents a value of a node based on which a search operation is to be carried out for a node.
 
+
+///
+note use arraylist in java
