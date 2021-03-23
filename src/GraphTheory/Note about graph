@@ -49,3 +49,8 @@ keys − Key represents a value of a node based on which a search operation is t
 
 ///
 note use arraylist in java
+
+
+graph traversal search method
+1 : Breadth first (BFS)
+2 : Depth first (DFS)
