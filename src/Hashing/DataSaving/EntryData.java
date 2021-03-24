@@ -16,6 +16,8 @@ public class EntryData {
         library.put(3,b3);
         library.put(4,b4);
         library.put(5,b5);
-        System.out.println(library.get(2).author);
+        System.out.print("Enter key to get info : ");
+        int index = input.nextInt();
+        System.out.println("Author : "+library.get(index).author+ " ||  Name : "+library.get(index).name+ " || Publisher : "+library.get(index).publisher);
     }
 }
