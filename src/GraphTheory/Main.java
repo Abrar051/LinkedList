@@ -19,6 +19,6 @@ public class Main {
         graph.addEdge(adj, 2, 3);
         graph.addEdge(adj, 3, 4);
         graph.printGraph(adj);
-        graph.breathFirstSearch(2);
+        //graph.breathFirstSearch(2);
     }
 }

@@ -5,6 +5,8 @@ import java.util.*;
 public class DArray {
     public int edges[] = new int[1];
     public int vertices;
+    public int graphX[]= new int[1];
+    public int graphY[]= new int[1];
     public int array2D[][];
     Scanner input = new Scanner(System.in);
 

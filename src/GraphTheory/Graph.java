@@ -7,7 +7,7 @@ public class Graph {
     private static ArrayList<ArrayList<Integer>> adjLinkedList;
     private static int u;
     private static int v;
-    private int V;   // number of vertices
+    private int V;
     private LinkedList<Integer> adjLinkList[]; //Adjacency Lists
 
     // Constructor
@@ -42,21 +42,15 @@ public class Graph {
         adjLinkList[v].add(w);
     }
 
-    // prints breath first search traversal from a given source s
-
-
     void breathFirstSearch(int val) {
         boolean visited[] = new boolean[V];
 
-        // Create a queue for BFS
         LinkedList<Integer> queue = new LinkedList<Integer>();
 
-        // Mark the current node as visited and enqueue it
         visited[val] = true;
         queue.add(val);
 
         while (queue.size() != 0) {
-            // Dequeue a vertex from queue and print it
             val = queue.poll();
             System.out.print(val + " ");
             Iterator<Integer> i = adjLinkedList.get(val).listIterator();
